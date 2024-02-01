@@ -1,4 +1,4 @@
-const Favourite = require('../../models/favourite');
+const Favorite = require('../../models/favorite');
 
 
 module.exports = {
@@ -7,7 +7,7 @@ module.exports = {
 
 async function addToFav(req, res) {
 	try {
-		const newFav = await Favourite.create({
+		const newFav = await Favorite.create({
 			user: req.user._id,
 			book: req.body.bookId,
 		});

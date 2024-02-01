@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const favouriteSchema = new Schema(
+const favoriteSchema = new Schema(
 	{
 		book: {
 			type: mongoose.Schema.ObjectId,
@@ -19,4 +19,4 @@ const favouriteSchema = new Schema(
 	}
 );
 
-module.exports = mongoose.model('Favourite', favouriteSchema);
+module.exports = mongoose.model('Favorite', favoriteSchema);

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const favCtrl = require('../../controllers/api/favourites');
+const favCtrl = require('../../controllers/api/favorites');
 
 router.post('/', favCtrl.addToFav);
 
