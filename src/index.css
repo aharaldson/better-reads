@@ -124,7 +124,7 @@ a.button {
 	margin: 1vmin;
 	padding: 1vmin;
 	color: var(--white);
-	background-color: #0D99FF;
+	background-color: #0d99ff;
 	font-size: 2vmin;
 	font-weight: bolder;
 	text-decoration: none;
@@ -159,13 +159,15 @@ button[type='submit'] {
 .topbar {
 	position: fixed;
 	width: 100%;
-	top: 0;
+	min-height: 25px;
+	max-height: 100px;
+	top: 25px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 .main-logo {
-	width: 200px;
+	width: 250px;
 }
 .topbar__content {
 	max-width: 1100px;
@@ -176,7 +178,45 @@ button[type='submit'] {
 
 .search-box-container {
 	display: flex;
-	gap: 40px;
+	gap: 0px;
+	background-color: #BDE3FF;
+	padding:  0.5em;
+	border-radius: 4em;
+	position: relative;
+}
+
+.search-box-container > input {
+	background-color: transparent;
+	border: none;
+}
+.searched-dropdown {
+	position: absolute;
+	top: 100px;
+	width: 100%;
+	max-height: 500px;
+	overflow-y: scroll;
+}
+
+.searched-list {
+	margin: 0;
+	padding: 0;
+	border: 1px solid #003154;
+	padding: 5px 10px;
+	border-radius: 5px;
+}
+.searched-book {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	cursor: pointer;
+	padding: 4px 8px;
+	list-style: none;
+	transition: all 0.4s ease-in-out;
+	background-color: #f6b05a;
+	color: white;
+}
+.searched-book:hover {
+	background-color: #f6a949;
 }
 .navbar {
 	position: fixed;
@@ -206,27 +246,87 @@ button[type='submit'] {
 	align-items: center;
 	font-size: 1.2em;
 	font-weight: 1000 !important;
-	color: #F6A949;
+	color: #f6a949;
 	padding: 0;
 }
 
 a {
-	display:block;
+	display: block;
 }
 
-a:visited, a:link, a:active {
+a:visited,
+a:link,
+a:active {
 	text-decoration: none !important;
 	color: inherit;
 }
 
 a:hover {
-	color: #0D99FF;
+	color: #0d99ff;
 }
 
-#logout-button:hover
-{
-	color: #0D99FF;
-	background-color: #F6A949;
-	border-color: #0D99FF;
+#logout-button:hover {
+	color: #0d99ff;
+	background-color: #f6a949;
+	border-color: #0d99ff;
 	transition: 0.35s;
+}
+
+.book-view-page-content {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+}
+
+.bv-container {
+	padding: 5em;
+	padding-top: 250px;
+	display: grid;
+	grid-template-rows: repeat(13, 1fr);
+	grid-template-columns: repeat(7, 1fr);
+	color: #BDE3FF;
+}
+
+.bv-image {
+	grid-area: 1 / 1 / 12 / 4;
+	justify-content: stretch;
+	align-content: stretch;
+	object-fit: cover;
+  width: 100%;
+  max-height: 100%;
+}
+
+.bv-title {
+	grid-area: 1 / 5 / 3 / 8;
+	font-size: 3.5em;
+}
+
+.bv-author {
+	grid-area: 3 / 5 / 4 / 8;
+	font-size: 2em;
+}
+
+.bv-desc {
+	grid-area: 4 / 5 / 7 / 8;
+	font-size: 0.9em;
+}
+
+.bv-pubdate {
+	grid-area: 7 / 5 / 8 / 8;
+	font-size: 1.2em;
+}
+
+.bv-cat {
+	grid-area: 8 / 5 / 9 / 8;
+	font-size: 1.2em;
+}
+
+.bv-pages {
+	grid-area: 9 / 5 / 10 / 8;
+	font-size: 1.2em;
+}
+
+.bv-isbn {
+	grid-area: 10 / 5 / 11 / 8;
+	font-size: 1.2em;
 }
