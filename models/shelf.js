@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const shelfSchema = new Schema(
 	{
+		
 		book: {
 			type: mongoose.Schema.ObjectId,
 			ref: 'Book',

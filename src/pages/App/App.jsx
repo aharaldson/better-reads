@@ -7,6 +7,7 @@ import NewOrderPage from '../NewOrderPage/NewOrderPage';
 import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
 
 import BookViewPage from '../BookViewPage/BookViewPage';
+import BooksShelfPage from '../BooksShelfPage/BooksShelfPage';
 import NavBar from '../../components/NavBar/NavBar';
 import TopBar from '../../components/TopBar/TopBar';
 
@@ -22,6 +23,7 @@ export default function App() {
 						{/* Route components in here */}
 						<Route path='/orders/new' element={<NewOrderPage />} />
 						<Route path='/books/:isbn' element={<BookViewPage />} />
+						<Route path='/shelf' element={<BooksShelfPage />} />
 						<Route path='/orders' element={<OrderHistoryPage />} />
 					</Routes>
 					<NavBar user={user} setUser={setUser} />

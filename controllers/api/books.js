@@ -1,4 +1,5 @@
 // const Favourite = require('../../models/favourite');
+const Book = require('../../models/book');
 
 // module.exports = {
 // 	addBook,
@@ -17,3 +18,22 @@
 // 		res.status(400).json(err);
 // 	}
 // }
+
+async function getBooks(req, res) {
+	let books = await Book.find();
+	res.json({ books: books });
+}
+
+async function deleteBooks(req, res) {
+	// const userID = req.params.userID;
+
+	await Book.deleteMany();
+	res.json({
+		message: 'books deleted',
+	});
+}
+
+module.exports = {
+	getBooks,
+	deleteBooks,
+};

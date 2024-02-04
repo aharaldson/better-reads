@@ -26,6 +26,7 @@ app.use('/api/users', require('./routes/api/users'));
 app.use('/api/favorites', require('./routes/api/favorites'));
 app.use('/api/shelves', require('./routes/api/shelves'));
 app.use('/api/reviews', require('./routes/api/reviews'));
+app.use('/api/books', require('./routes/api/books'));
 
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX/API requests
