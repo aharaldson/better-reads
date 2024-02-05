@@ -22,4 +22,5 @@ betterReads is a book tracking and organization app. The goal is to create a sim
 
 ## Links:
 [figma](https://www.figma.com/file/ZUFuN2J1d3dFuZNkI9a82x/better-reads?type=whiteboard&node-id=0-1&t=xIhk7ISaHVn3LXYd-0)
+<br>
 [deployed app](https://better-reads-app-9bf78ec998e2.herokuapp.com/)
