@@ -1,6 +1,6 @@
   # **betterReads**
 
-  ## a reading app
+  ## a *better* reading app
 
   ### SEIR Project 4
 
