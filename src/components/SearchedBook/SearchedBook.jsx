@@ -16,7 +16,7 @@ export default function SearchedBook({ bookItem, onNavigateToView }) {
 				src={bookItem.imageLinks.smallThumbnail}
 				style={{
 					width: '25px',
-					height: '25px',
+					height: '35px',
 					backgroundPosition: 'cover',
 					objectFit: 'cover',
 				}}

@@ -44,7 +44,7 @@ export default function SearchBox() {
 						description: bookItem.description,
 						authors: bookItem.authors,
 						categories: bookItem.categories,
-						thumbnail: bookItem.imageLinks.thumbnail,
+						thumbnail: bookItem.imageLinks ? bookItem.imageLinks.thumbnail: null,
 						pageCount: bookItem.pageCount,
 						publishedDate: bookItem.publishedDate,
 					};

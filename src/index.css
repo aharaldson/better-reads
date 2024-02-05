@@ -216,7 +216,7 @@ button[type='submit'] {
 }
 .searched-dropdown {
 	position: absolute;
-	top: 112px;
+	top: 64px;
 	width: 100%;
 	max-height: 500px;
 	overflow-y: scroll;

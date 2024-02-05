@@ -1,3 +1,10 @@
-# MERN-Stack Infrastructure
+  # **betterReads**
 
-Clone this repo to provide the starter code for a comprehensive MERN-Stack project including token-based authentication.
+  ## a reading app
+
+  ### SEIR Project 4
+
+betterReads is a book tracking and organization app
+
+  ## Screenshots:
+(/public/screenshots/main_figma.png)
