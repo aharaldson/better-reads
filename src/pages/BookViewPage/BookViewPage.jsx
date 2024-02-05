@@ -5,39 +5,25 @@ import { useEffect, useState } from 'react';
 export default function BookViewPage() {
 	const location = useLocation();
 	let params = new URLSearchParams(location.search);
-	console.log(params.get('in-system'));
 	const { isbn } = useParams();
 	const navigate = useNavigate();
 	const [book, setBook] = useState(null);
-
-	console.log({ isbn: isbn });
 
 	useEffect(() => {
 		let localBooks = JSON.parse(localStorage.getItem('books'));
 
 		let foundBook = localBooks.find((book) => book.isbn === isbn);
-		console.log(foundBook);
 		if (!foundBook) {
 			// find out in database
 			fetch('/api/books')
 				.then((res) => res.json())
 				.then((data) => {
-					// console.log({
-					// 	data: data,
-					// });
-
 					foundBook = data.books.find((book) => book.isbn === isbn);
-
-					if (foundBook) {
-						//
-						// setShowRemove()
-					}
+					if (foundBook) {}
 					setBook(foundBook);
 				});
 		}
 		setBook(foundBook);
-
-		/// show remove button just in category
 	}, [isbn]);
 
 	const handleShelf = async (status) => {
@@ -53,11 +39,6 @@ export default function BookViewPage() {
 			}),
 		});
 		const jsObj = await response.json();
-		console.log({
-			jsObj,
-		});
-
-		console.log('here...');
 		navigate('/');
 	};
 
@@ -77,8 +58,6 @@ export default function BookViewPage() {
 	};
 	return (
 		<section className='book-view-page'>
-			{/* <h2>Boook View Page ===> {isbn}</h2> */}
-
 			{!book && <p>loading...</p>}
 			{book && (
 				<div className='book-view-page-content'>
@@ -132,7 +111,6 @@ export default function BookViewPage() {
 									onClick={(e) => handleRemoveFromShelf(params.get('shelf-id'))}
 									style={{ backgroundColor: 'red' }}
 								>
-									{/* Remove {params.get('shelf-id')} */}
 									Remove
 								</button>
 							)}

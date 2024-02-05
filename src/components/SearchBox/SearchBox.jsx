@@ -17,7 +17,6 @@ export default function SearchBox() {
 		)
 			.then((res) => res.json())
 			.then((data) => {
-				console.log({ data });
 				let books = [];
 				data.items.map((item) => {
 					if (item.volumeInfo.industryIdentifiers) {
@@ -38,26 +37,6 @@ export default function SearchBox() {
 					return null;
 				});
 
-				// console.log(data.items.)
-				// 				console.log(composedBooks.length);
-				// data.items.map((item) => {
-				// 	const { volumeInfo: bookItem } = item;
-
-				// 	//UCSC:32106019703807
-
-				// 	let parsedBookItem = {
-				// 		isbn: parseISBN(bookItem.industryIdentifiers[0].identifier),
-				// 		title: bookItem.title,
-				// 		description: bookItem.description,
-				// 		authors: bookItem.authors,
-				// 		categories: bookItem.categories,
-				// 		thumbnail: bookItem.imageLinks.thumbnail,
-				// 		pageCount: bookItem.pageCount,
-				// 		publishedDate: bookItem.publishedDate,
-				// 	};
-				// 	parsedBooks.push(parsedBookItem);
-				// });
-
 				composedBooks.map((bookItem) => {
 					let parsedBookItem = {
 						isbn: parseISBN(bookItem.industryIdentifiers[0].identifier),
@@ -75,14 +54,6 @@ export default function SearchBox() {
 				localStorage.setItem('books', JSON.stringify(parsedBooks));
 			});
 	};
-
-	// function parseISBN(isbnStr) {
-	// 	if (isbnStr.includes(':')) {
-	// 		return isbnStr.split(':')[1];
-	// 	} else {
-	// 		return isbnStr;
-	// 	}
-	// }
 
 	const handleNavigateToView = () => {
 		setSearchedBooks([]);

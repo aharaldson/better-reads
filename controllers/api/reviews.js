@@ -1,4 +1,3 @@
-// const { json } = require('express');
 const Review = require('../../models/review');
 const Shelf = require('../../models/shelf');
 
@@ -9,15 +8,6 @@ module.exports = {
 async function addReview(req, res) {
 	const bookId = req.params.bookId;
 	const shelfId = req.params.shelfId;
-
-	// console.log({
-	// 	shelfId,
-	// 	bookId,
-	// });
-
-	// return res.json({
-	// 	test: 'test',
-	// });
 
 	const bookShelf = await Shelf.findById(shelfId);
 	if (bookShelf.status !== 'have_read') {
@@ -34,7 +24,6 @@ async function addReview(req, res) {
 			rating: req.body.rating,
 			content: req.body.content,
 		});
-		// const token = createJWT(user);
 		res.json(newReview);
 	} catch (err) {
 		console.log(err);

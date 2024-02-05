@@ -20,28 +20,13 @@ export default function BooksShelfPage() {
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				console.log(data);
-				// setShelfBooks(data.shelves);
-				// let currentlyReading = data.shelves.filter(
-				// 	(book) => book.status === 'currently_reading'
-				// );
-
 				setCurrentlyReading(
 					data.shelves.filter((book) => book.status === 'currently_reading')
 				);
-
 				setWantToRead(
 					data.shelves.filter((book) => book.status === 'want_to_read')
 				);
-				// let wantToRead = data.shelves.filter(
-				// 	(book) => book.status === 'want_to_read'
-				// );
 				setHaveRead(data.shelves.filter((book) => book.status === 'have_read'));
-				// let haveRead = data.shelves.filter(
-				// 	(book) => book.status === 'have_read'
-				// );
-
-				// setCurrentReading;
 			});
 	}, []);
 
@@ -53,36 +38,11 @@ export default function BooksShelfPage() {
 		} else if (shelfTag === 'currently_reading') {
 			setSeeAllCurrent(!seeAllCurrent);
 		} else {
-			// happy coding!
 		}
 	};
 	return (
 		<div className='shelf'>
 			<h2 className='shelf-title'>My Shelves</h2>
-
-			{/* <ul className='shelf-list'>
-				{shelfBooks &&
-					shelfBooks.length > 0 &&
-					shelfBooks.map((shelfBook) => (
-						<li className='shelf-item'>
-							<img
-								src={shelfBook.book.thumbnail}
-								style={{
-									width: '25px',
-									height: '25px',
-									backgroundPosition: 'cover',
-									objectFit: 'cover',
-								}}
-								alt='small book cover'
-							/>
-							<strong>{shelfBook.book.title}</strong>{' '}
-							<span className={`${shelfBook.status}`} id='status-tag'>
-								{shelfBook.status}
-							</span>
-						</li>
-					))}
-			</ul> */}
-
 			<div className='shelf__main'>
 				<div className='shelf_section'>
 					<div className='shelf__header'>
@@ -142,12 +102,10 @@ export default function BooksShelfPage() {
 												{bookItem.book.title + ', ' + bookItem.book.authors[0]}
 											</span>
 										)}
-										{/* <button>Remove</button> */}
 									</Link>
 								);
 							})}
 						</div>
-						{/* <span className='dots'>...</span> */}
 						<button
 							className='shelf__body-button'
 							onClick={() => handleSeeAll('want_to_read')}
@@ -188,7 +146,6 @@ export default function BooksShelfPage() {
 							onClick={() => handleSeeAll('have_read')}
 						>
 							{seeAllRead ? 'Collapase' : 'See All'}
-							{/* See All */}
 						</button>
 					</div>
 				</div>

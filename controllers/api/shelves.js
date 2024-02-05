@@ -34,50 +34,20 @@ async function addToShelf(req, res) {
 		let existingShelf = null;
 		if (anyBook) {
 			existingShelf = await Shelf.findOne({
-				// book: req.body.bookId,
 				book: anyBook._id,
 				user: req.user._id,
 			});
 		}
 
-		// existingShelf = await Shelf.findOne({
-		// 	// book: req.body.bookId,
-		// 	bookISBN: req.params.bookISBN,
-		// 	user: req.user._id,
-		// });
-
 		let updatedShelf = null;
 		if (existingShelf) {
-			console.log('here....');
 			updatedShelf = await Shelf.findByIdAndUpdate(existingShelf._id, {
 				status: req.body.status,
 			});
 
 			return res.json(updatedShelf);
-			// return;
 		}
 
-		// let anyBook = await Book.findOne({
-		// 	bookISBN: req.params.bookISBN,
-		// });
-
-		// let shelfResponse = null;
-		// if (anyBook) {
-		// 	shelfResponse = await Shelf.create({
-		// 		user: req.user._id,
-		// 		book: anyBook._id,
-		// 		status: req.body.status,
-		// 	});
-
-		// 	return res.json(shelfResponse);
-		// }
-
-		// const newShelf = await Shelf.create({
-		// 	user: req.user._id,
-		// 	book: newBook._id,
-		// 	status: req.body.status,
-		// });
-		// res.json(newShelf);
 	} catch (err) {
 		console.log(err);
 		res.status(400).json(err);
@@ -93,23 +63,6 @@ async function getbyUserID(req, res) {
 
 	const composedShelfs = [];
 
-	// allShelfs.map(async (shelf) => {
-	// 	// composedShelfs.push(shelf.toObject());
-	// 	let shelfObj = shelf.toObject();
-	// 	shelfObj.reviews = [];
-	// 	const allBookRevies = await Review.find({
-	// 		book: shelf.book._id,
-	// 	}).populate(['user', 'shelf']);
-
-	// 	allBookRevies.map((rev) => {
-	// 		let bookRev = rev.toObject();
-	// 		shelfObj.reviews.push(bookRev);
-	// 	});
-
-	// 	composedShelfs.push(shelfObj);
-	// });
-
-	// Assuming composedShelfs is an array that you've defined somewhere above this snippet
 	let composedShelfsPromises = allShelfs.map(async (shelf) => {
 		let shelfObj = shelf.toObject();
 		shelfObj.reviews = [];
@@ -128,8 +81,6 @@ async function getbyUserID(req, res) {
 	Promise.all(composedShelfsPromises)
 		.then((composedShelfs) => {
 			// At this point, composedShelfs is an array of all the shelf objects with their reviews
-			// You can now work with the fully composed shelf objects
-			console.log(composedShelfs);
 			// Any further processing that depends on composedShelfs being fully populated
 			res.json({
 				count: allShelfs.length,
@@ -143,7 +94,6 @@ async function getbyUserID(req, res) {
 }
 
 async function deleteShelfs(req, res) {
-	// const userID = req.params.userID;
 
 	await Shelf.deleteMany();
 	res.json({
@@ -152,15 +102,6 @@ async function deleteShelfs(req, res) {
 }
 
 async function removeFromShelf(req, res) {
-	// const userID = req.params.userID;
-
-	// console.log({
-	// 	shelfId: req.params.id,
-	// 	userId: req.user._id,
-	// });
-	// return res.json({
-	// 	test: 'working',
-	// });
 
 	try {
 		const deleted = await Shelf.deleteOne({
@@ -176,9 +117,4 @@ async function removeFromShelf(req, res) {
 			error: err.message,
 		});
 	}
-
-	// await Shelf.deleteMany();
-	// res.json({
-	// 	message: 'deleted',
-	// });
 }
