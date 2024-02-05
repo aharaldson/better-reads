@@ -3,11 +3,15 @@ const Schema = mongoose.Schema;
 
 const shelfSchema = new Schema(
 	{
-		
 		book: {
 			type: mongoose.Schema.ObjectId,
 			ref: 'Book',
 			required: true,
+		},
+		review: {
+			type: mongoose.Schema.ObjectId,
+			ref: 'Review',
+			// required: true,
 		},
 		user: {
 			type: mongoose.Schema.ObjectId,

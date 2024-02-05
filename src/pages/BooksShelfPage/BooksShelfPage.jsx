@@ -49,9 +49,9 @@ export default function BooksShelfPage() {
 		if (shelfTag === 'want_to_read') {
 			setSeeAllWant(!seeAllWant);
 		} else if (shelfTag === 'have_read') {
-			setSeeAllRead(true);
+			setSeeAllRead(!seeAllRead);
 		} else if (shelfTag === 'currently_reading') {
-			setSeeAllCurrent(true);
+			setSeeAllCurrent(!seeAllCurrent);
 		} else {
 			// happy coding!
 		}
@@ -88,16 +88,24 @@ export default function BooksShelfPage() {
 					<div className='shelf__header'>
 						<span className='shelf__header-chip'>Currently Reading</span>
 					</div>
-					<div className='shelf__body'>
+					<div className={`shelf__body ${seeAllCurrent ? 'see-all' : ''}`}>
 						<div className='shelf__body-list'>
 							{currentlyReading.map((bookItem) => {
 								return (
-									<Link to={`/books/${bookItem.book.isbn}`}>
+									<Link
+										to={`/books/${bookItem.book.isbn}?shelf-id=${bookItem._id}`}
+										className='shelf_book_item'
+									>
 										<img
 											src={bookItem.book.thumbnail}
 											alt=''
 											className='shelf_book_cover'
 										/>
+										{seeAllCurrent && (
+											<span>
+												{bookItem.book.title + ', ' + bookItem.book.authors[0]}
+											</span>
+										)}
 									</Link>
 								);
 							})}
@@ -107,7 +115,8 @@ export default function BooksShelfPage() {
 							className='shelf__body-button'
 							onClick={() => handleSeeAll('currently_reading')}
 						>
-							See All
+							{seeAllCurrent ? 'Collapase' : 'See All'}
+							{/* See All */}
 						</button>
 					</div>
 				</div>
@@ -151,16 +160,24 @@ export default function BooksShelfPage() {
 					<div className='shelf__header'>
 						<span className='shelf__header-chip'>Have Read</span>
 					</div>
-					<div className='shelf__body'>
+					<div className={`shelf__body ${seeAllRead ? 'see-all' : ''}`}>
 						<div className='shelf__body-list'>
 							{haveRead.map((bookItem) => {
 								return (
-									<Link to={`/books/${bookItem.book.isbn}`}>
+									<Link
+										to={`/books/${bookItem.book.isbn}?shelf-id=${bookItem._id}`}
+										className='shelf_book_item'
+									>
 										<img
 											src={bookItem.book.thumbnail}
 											alt=''
 											className='shelf_book_cover'
 										/>
+										{seeAllRead && (
+											<span>
+												{bookItem.book.title + ', ' + bookItem.book.authors[0]}
+											</span>
+										)}
 									</Link>
 								);
 							})}
@@ -170,7 +187,8 @@ export default function BooksShelfPage() {
 							className='shelf__body-button'
 							onClick={() => handleSeeAll('have_read')}
 						>
-							See All
+							{seeAllRead ? 'Collapase' : 'See All'}
+							{/* See All */}
 						</button>
 					</div>
 				</div>

@@ -96,7 +96,11 @@ export default function BookViewPage() {
 							{book.publishedDate}
 						</div>
 						<div className='bv-cat'>
-						<span>{book.categories && book.categories.length > 0 ? book.categories.join(' ,') : '[no category listed]'}</span>
+							<span>
+								{book.categories && book.categories.length > 0
+									? book.categories.join(' ,')
+									: '[no category listed]'}
+							</span>
 						</div>
 						<div className='bv-pages'>
 							<span>
@@ -112,27 +116,29 @@ export default function BookViewPage() {
 						</div>
 						<div className='bv-desc'>{book.description}</div>
 
-					<div className='searched-book__actions'>
-						<button onClick={(e) => handleShelf('currently_reading')}>
-							I am reading this
-						</button>
-						<button onClick={(e) => handleShelf('want_to_read')}>
-							I want to read this
-						</button>
-						<button onClick={(e) => handleShelf('have_read')}>
-							I have read this
-						</button>
-
-						{params.get('shelf-id') && (
-							<button
-								onClick={(e) => handleRemoveFromShelf(params.get('shelf-id'))}
-								style={{ backgroundColor: 'red' }}
-							>
-								{/* Remove {params.get('shelf-id')} */}
-								Remove
+						<div className='searched-book__actions'>
+							<button onClick={(e) => handleShelf('currently_reading')}>
+								I am reading this
 							</button>
-						)}
-					</div>
+							<button onClick={(e) => handleShelf('want_to_read')}>
+								I want to read this
+							</button>
+							<button onClick={(e) => handleShelf('have_read')}>
+								I have read this
+							</button>
+
+							{params.get('shelf-id') && (
+								<button
+									onClick={(e) => handleRemoveFromShelf(params.get('shelf-id'))}
+									style={{ backgroundColor: 'red' }}
+								>
+									{/* Remove {params.get('shelf-id')} */}
+									Remove
+								</button>
+							)}
+
+							{}
+						</div>
 					</div>
 				</div>
 			)}

@@ -3,8 +3,6 @@ import { Routes, Route } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
-import NewOrderPage from '../NewOrderPage/NewOrderPage';
-import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
 
 import BookViewPage from '../BookViewPage/BookViewPage';
 import BooksShelfPage from '../BooksShelfPage/BooksShelfPage';
@@ -21,10 +19,8 @@ export default function App() {
 					<TopBar />
 					<Routes>
 						{/* Route components in here */}
-						<Route path='/orders/new' element={<NewOrderPage />} />
 						<Route path='/books/:isbn' element={<BookViewPage />} />
 						<Route path='/' element={<BooksShelfPage />} />
-						<Route path='/orders' element={<OrderHistoryPage />} />
 					</Routes>
 					<NavBar user={user} setUser={setUser} />
 				</>

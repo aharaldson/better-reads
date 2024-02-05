@@ -1,5 +1,6 @@
 const Shelf = require('../../models/shelf');
 const Book = require('../../models/book');
+const Review = require('../../models/review');
 
 module.exports = {
 	addToShelf,
@@ -88,10 +89,57 @@ async function getbyUserID(req, res) {
 
 	const allShelfs = await Shelf.find({
 		user: userID,
-	}).populate(['book']);
-	res.json({
-		shelves: allShelfs,
+	}).populate(['book', 'user']);
+
+	const composedShelfs = [];
+
+	// allShelfs.map(async (shelf) => {
+	// 	// composedShelfs.push(shelf.toObject());
+	// 	let shelfObj = shelf.toObject();
+	// 	shelfObj.reviews = [];
+	// 	const allBookRevies = await Review.find({
+	// 		book: shelf.book._id,
+	// 	}).populate(['user', 'shelf']);
+
+	// 	allBookRevies.map((rev) => {
+	// 		let bookRev = rev.toObject();
+	// 		shelfObj.reviews.push(bookRev);
+	// 	});
+
+	// 	composedShelfs.push(shelfObj);
+	// });
+
+	// Assuming composedShelfs is an array that you've defined somewhere above this snippet
+	let composedShelfsPromises = allShelfs.map(async (shelf) => {
+		let shelfObj = shelf.toObject();
+		shelfObj.reviews = [];
+		const allBookReviews = await Review.find({
+			book: shelf.book._id,
+		}).populate(['user', 'shelf']);
+
+		allBookReviews.forEach((rev) => {
+			let bookRev = rev.toObject();
+			shelfObj.reviews.push(bookRev);
+		});
+
+		return shelfObj;
 	});
+
+	Promise.all(composedShelfsPromises)
+		.then((composedShelfs) => {
+			// At this point, composedShelfs is an array of all the shelf objects with their reviews
+			// You can now work with the fully composed shelf objects
+			console.log(composedShelfs);
+			// Any further processing that depends on composedShelfs being fully populated
+			res.json({
+				count: allShelfs.length,
+				shelves: composedShelfs,
+			});
+		})
+		.catch((error) => {
+			// Handle any errors that might occur during the fetching of reviews
+			console.error('Error fetching shelf reviews:', error);
+		});
 }
 
 async function deleteShelfs(req, res) {

@@ -28,6 +28,11 @@ const bookSchema = new Schema(
 		thumbnail: {
 			type: String,
 		},
+		review: {
+			type: mongoose.Schema.ObjectId,
+			ref: 'Review',
+			// required: true,
+		},
 	},
 	{
 		timestamps: true,

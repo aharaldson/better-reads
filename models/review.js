@@ -8,6 +8,11 @@ const reviewSchema = new Schema(
 			ref: 'Book',
 			required: true,
 		},
+		shelf: {
+			type: mongoose.Schema.ObjectId,
+			ref: 'Shelf',
+			// required: true,
+		},
 		user: {
 			type: mongoose.Schema.ObjectId,
 			ref: 'User',
