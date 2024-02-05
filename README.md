@@ -26,6 +26,8 @@ All functionality is user-specific, so one must be logged-in to use betterReads.
   ## Links:
 [figma](https://www.figma.com/file/ZUFuN2J1d3dFuZNkI9a82x/better-reads?type=whiteboard&node-id=0-1&t=xIhk7ISaHVn3LXYd-0)
 <br>
+[lucid ERD](https://lucid.app/lucidchart/da37da0e-a761-48ba-b32b-caf0eecec9aa/edit?beaconFlowId=272AB641554FB607&invitationId=inv_3e82a9f7-3d29-4174-9e8e-893ce4009ff5&page=0_0#)
+<br>
 [deployed app](https://better-reads-app-9bf78ec998e2.herokuapp.com/)
 
   ## Future Enhancements
