@@ -32,11 +32,13 @@ All functionality is user-specific, so one must be logged-in to use betterReads.
 
   ## Future Enhancements
 
-  I intend to implement review functionality on titles. The underpinnings are there, but I haven't gotten it to work yet.
+I intend to implement review functionality on titles. The underpinnings are there, but I haven't gotten it to work yet.
 
-  A favorites list will be added in the future.
+A favorites list will be added in the future.
 
-  I also want to add a Notes feature to log user-created notes specific to a title and "bookmarked" to a particular page in a volume.
+I also want to add a Notes feature to log user-created notes specific to a title and "bookmarked" to a particular page in a volume.
+
+I would love to implement a social aspect to the app in the future as well, because my biggest gripe with *other* reading apps is the poor friend/sharing implementation.
 
 
   ## Challenges
