@@ -1,4 +1,5 @@
   # **betterReads**
+  ![logo](/public/reader-logo.png)
 
   ## a *better* reading app
 
