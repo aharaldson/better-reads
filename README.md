@@ -34,7 +34,7 @@ All functionality is user-specific, so one must be logged-in to use betterReads.
 
 I intend to implement review functionality on titles. The underpinnings are there, but I haven't gotten it to work yet.
 
-A favorites list will be added in the future.
+A favoriting feature that will display a list will be added in the future.
 
 I also want to add a Notes feature to log user-created notes specific to a title and "bookmarked" to a particular page in a volume.
 
