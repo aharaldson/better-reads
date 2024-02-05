@@ -7,4 +7,4 @@
 betterReads is a book tracking and organization app
 
   ## Screenshots:
-(/public/screenshots/main_figma.png)
+(https://i.imgur.com/JKE9B81.png)
