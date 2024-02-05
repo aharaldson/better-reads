@@ -10,12 +10,11 @@ All functionality is user-specific, so one must be logged-in to use betterReads.
 
   ## Screenshots:
 
-![figma main page](https://i.imgur.com/JKE9B81.png | width=400)
-![figma view page](https://i.imgur.com/Qjc3O02.png | width=400)
-
-![user home](https://i.ibb.co/T2LtC4X/Screenshot-2024-02-05-at-9-55-44-AM.png | width=400)
-![search dropdown](https://i.ibb.co/vL2HXHS/Screenshot-2024-02-05-at-9-59-16-AM.png | width=400)
-![expanded shelf](https://i.ibb.co/fMbntQX/Screenshot-2024-02-05-at-9-59-56-AM.png | width=400)
+![figma main page]<img src="https://i.imgur.com/JKE9B81.png" width="400">
+![figma view page]<img src="https://i.imgur.com/Qjc3O02.png" width="400">
+![user home]<img src="https://i.ibb.co/T2LtC4X/Screenshot-2024-02-05-at-9-55-44-AM.png" width="400">
+![search dropdown]<img src="https://i.ibb.co/vL2HXHS/Screenshot-2024-02-05-at-9-59-16-AM.png" width="400">
+![expanded shelf]<img src="https://i.ibb.co/fMbntQX/Screenshot-2024-02-05-at-9-59-56-AM.png" width="400">
 
   ## Technologies Used:
 
