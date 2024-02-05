@@ -23,7 +23,7 @@ export default function App() {
 						{/* Route components in here */}
 						<Route path='/orders/new' element={<NewOrderPage />} />
 						<Route path='/books/:isbn' element={<BookViewPage />} />
-						<Route path='/shelf' element={<BooksShelfPage />} />
+						<Route path='/' element={<BooksShelfPage />} />
 						<Route path='/orders' element={<OrderHistoryPage />} />
 					</Routes>
 					<NavBar user={user} setUser={setUser} />

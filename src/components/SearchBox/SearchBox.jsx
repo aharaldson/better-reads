@@ -20,18 +20,45 @@ export default function SearchBox() {
 				console.log({ data });
 				let books = [];
 				data.items.map((item) => {
-					books.push(item.volumeInfo);
+					if (item.volumeInfo.industryIdentifiers) {
+						books.push(item.volumeInfo);
+					}
+
 					return null;
 				});
 				setSearchedBooks(books);
 
 				let parsedBooks = [];
 
+				let composedBooks = [];
 				data.items.map((item) => {
-					const { volumeInfo: bookItem } = item;
+					if (item.volumeInfo.industryIdentifiers) {
+						composedBooks.push(item.volumeInfo);
+					}
+					return null;
+				});
 
-					//UCSC:32106019703807
+				// console.log(data.items.)
+				// 				console.log(composedBooks.length);
+				// data.items.map((item) => {
+				// 	const { volumeInfo: bookItem } = item;
 
+				// 	//UCSC:32106019703807
+
+				// 	let parsedBookItem = {
+				// 		isbn: parseISBN(bookItem.industryIdentifiers[0].identifier),
+				// 		title: bookItem.title,
+				// 		description: bookItem.description,
+				// 		authors: bookItem.authors,
+				// 		categories: bookItem.categories,
+				// 		thumbnail: bookItem.imageLinks.thumbnail,
+				// 		pageCount: bookItem.pageCount,
+				// 		publishedDate: bookItem.publishedDate,
+				// 	};
+				// 	parsedBooks.push(parsedBookItem);
+				// });
+
+				composedBooks.map((bookItem) => {
 					let parsedBookItem = {
 						isbn: parseISBN(bookItem.industryIdentifiers[0].identifier),
 						title: bookItem.title,

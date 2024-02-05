@@ -6,5 +6,6 @@ const checkToken = require('../../config/checkToken');
 router.put('/:bookISBN', checkToken, shelfCtrl.addToShelf);
 router.get('/', checkToken, shelfCtrl.getbyUserID);
 router.delete('/', shelfCtrl.deleteShelfs);
+router.delete('/:id', checkToken, shelfCtrl.removeFromShelf);
 
 module.exports = router;

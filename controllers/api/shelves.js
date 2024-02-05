@@ -5,6 +5,7 @@ module.exports = {
 	addToShelf,
 	getbyUserID,
 	deleteShelfs,
+	removeFromShelf,
 };
 
 async function addToShelf(req, res) {
@@ -100,4 +101,36 @@ async function deleteShelfs(req, res) {
 	res.json({
 		message: 'deleted',
 	});
+}
+
+async function removeFromShelf(req, res) {
+	// const userID = req.params.userID;
+
+	// console.log({
+	// 	shelfId: req.params.id,
+	// 	userId: req.user._id,
+	// });
+	// return res.json({
+	// 	test: 'working',
+	// });
+
+	try {
+		const deleted = await Shelf.deleteOne({
+			_id: req.params.id,
+			user: req.user._id,
+		});
+
+		res.json({
+			message: 'removed',
+		});
+	} catch (err) {
+		res.json({
+			error: err.message,
+		});
+	}
+
+	// await Shelf.deleteMany();
+	// res.json({
+	// 	message: 'deleted',
+	// });
 }
